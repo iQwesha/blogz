@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<html>
+    <head>
+    </head>
+    <body>    
+    <h1>Build a Blog</h1>
+        <form action="/blog" method="post">
+            <table>
+                <tr>
+                    <td><label for "blog-title">Blog Title</label></td>
+                    <td>
+                        <input name="blog-title" type="text" value="">
+                        <span class="error">{{title_error}}</span>
+                    </td>
+                </tr>
+                <tr><label for="blog-body">Blog Body</label></td>
+                    <td>
+                        <input name="blog-body" type="password">
+                        <span class="error">{{body-error}}</span>
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" />
+        </form>
+    </body
+</html>                    
+
+    {% if posts|length == 0 %}
+    <h3>No blog posts yet.</h3>
+    {% else %}
+    
+    {% for post in posts %}
+    
+    <a href="/blog?id={{post.id}}"><h2>{{post.title}}</h2></a>
+    <p>{{post.body}}</p>
+    <hr>            
+    
+    {% endfor %}  
+
+    {% endif %}
+
+{% endblock %}
