@@ -5,6 +5,11 @@
 <html>
     <head>
         <title>Blog</title>
+         <style>
+            .error {
+                color: red;
+            }
+        </style>
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/styles.css">
     </head>
@@ -16,12 +21,25 @@
             </ul>
             <ul>
                 <li><a href="/">home</a></li>
+                <li><a href="/login">login</a></li>
                 <li><a href="/blog">all posts</a></li>
-                <li><a href="/blog/newpost">new post</a></li>
-            </ul>
-        </nav>
+                <li><a href="/newpost">new post</a></li>
+
+
+                <div>
+                    <a href='/logout'>log out</a>
+                </div>
+
+                {% with messages = get_flashed_messages(with_categories=True) %}
+                    <ul>
+                    {% for category,message in messages %}
+                        <li class="{{category}}">{{message}}</li>
+                    {% endfor %}
+                    </ul>
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
 
 </body>
 </html>
-
-{% endblock %}
