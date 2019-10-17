@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Blogz</title>
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
+        <nav>
+            <ul id="user_id">
+                <li><a href="/login">login</a></li>
+                <li><a href="/logout">logout</a></li>
+            </ul>
+            <ul>
+                <li><a href="/">home</a></li>
+                <li><a href="/blog">all posts</a></li>
+                <li><a href="/blog/newpost">new post</a></li>
+            </ul>
+        </nav>
+        
+
+<h1>blog users!</h1>
+
+<ul>
+{% for blog_user in users %}
+    
+    <li><a href="/blog?user={{user_id}}"><h2>{{username}}</h2></a></li>   
+    {% endfor %}  
+</ul>
+    </body>
+</html>
