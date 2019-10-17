@@ -5,7 +5,7 @@
     <head>
     </head>
     <body>    
-    <h1>Build a Blog</h1>
+    <h1>Blog Post</h1>
         <form action="/blog" method="post">
             <table>
                 <tr>
@@ -18,7 +18,7 @@
                 <tr><label for="blog-body">Blog Body</label></td>
                     <td>
                         <input name="blog-body" type="password">
-                        <span class="error">{{body-error}}</span>
+                        <span class="error">{{body_error}}</span>
                     </td>
                 </tr>
             </table>
@@ -27,15 +27,14 @@
     </body
 </html>                    
 
-    {% if posts|length == 0 %}
-    <h3>No blog posts yet.</h3>
+    {% if blogs|length == 0 %}
+    <h3>No blog posts yet</h3>
     {% else %}
     
-    {% for post in posts %}
+    {% for blog in blogs %}
     
-    <a href="/blog?id={{post.id}}"><h2>{{post.title}}</h2></a>
-    <p>{{post.body}}</p>
-    <hr>            
+    <a href="/blog?user={{blog_id}}"><h2>{{blog_title}}</h2></a>
+    <p>{{blog_body}}</p>           
     
     {% endfor %}  
 
